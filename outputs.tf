@@ -1,3 +1,7 @@
+output "netapp_account_encryptions_id" {
+  description = "Map of id values across all netapp_account_encryptions, keyed the same as var.netapp_account_encryptions"
+  value       = { for k, v in azurerm_netapp_account_encryption.netapp_account_encryptions : k => v.id }
+}
 output "netapp_account_encryptions_cross_tenant_key_vault_resource_id" {
   description = "Map of cross_tenant_key_vault_resource_id values across all netapp_account_encryptions, keyed the same as var.netapp_account_encryptions"
   value       = { for k, v in azurerm_netapp_account_encryption.netapp_account_encryptions : k => v.cross_tenant_key_vault_resource_id }
